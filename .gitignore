@@ -1,0 +1,69 @@
+# .NET Core
+bin/
+obj/
+*.log
+
+# Visual Studio
+.vscode/
+.vs/
+.vscode/*
+**/.vs/*
+.vscode/settings.json
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Build directories
+artifacts/
+dist/
+out/
+
+# Dotnet specific files
+#*.db
+#*.sqlite
+#appsettings*.json
+#secrets.json
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# Logs
+logs/
+*.log
+
+# Package directories
+**/packages
+*.nupkg
+*.snupkg
+packages/*
+
+# NuGet
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.nuget.props
+*.nuget.targets
+
+# Other
+.idea/
+.ReSharper/

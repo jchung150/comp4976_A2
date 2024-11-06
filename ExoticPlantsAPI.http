@@ -1,0 +1,6 @@
+@ExoticPlantsAPI_HostAddress = http://localhost:5285
+
+GET {{ExoticPlantsAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
