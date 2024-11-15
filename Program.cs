@@ -43,6 +43,13 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// Apply migrations and create the database if it doesn't exist
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ExoticPlantsContext>();
+    dbContext.Database.Migrate();
+}
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
