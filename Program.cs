@@ -6,23 +6,36 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 
-// Configure DbContext to load the connection string only in Development environment
-string connectionString;
-if (builder.Environment.IsDevelopment())
-{
-    // Retrieve the connection string from appsettings.Development.json
-    connectionString = builder.Configuration.GetConnectionString("ExoticPlantsDatabase");
-}
-else
-{
+// // Configure DbContext to load the connection string only in Development environment
+// string connectionString;
+// if (builder.Environment.IsDevelopment())
+// {
+//     // Retrieve the connection string from appsettings.Development.json
+//     connectionString = builder.Configuration.GetConnectionString("ExoticPlantsDatabase");
+// }
+// else
+// {
    
-    connectionString = null; 
-}
+//     connectionString = null; 
+// }
+
+// if (!string.IsNullOrEmpty(connectionString))
+// {
+//     builder.Services.AddDbContext<ExoticPlantsContext>(options =>
+//         options.UseSqlite(connectionString));
+// }
+
+// Retrieve the connection string from configuration
+string connectionString = builder.Configuration.GetConnectionString("ExoticPlantsDatabase");
 
 if (!string.IsNullOrEmpty(connectionString))
 {
     builder.Services.AddDbContext<ExoticPlantsContext>(options =>
         options.UseSqlite(connectionString));
+}
+else
+{
+    throw new InvalidOperationException("Database connection string is not configured.");
 }
 
 builder.Services.AddEndpointsApiExplorer();
