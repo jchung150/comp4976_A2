@@ -67,3 +67,4 @@ artifacts/
 # Other
 .idea/
 .ReSharper/
+publish/
